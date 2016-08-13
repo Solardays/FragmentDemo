@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jc.fragmentdemo.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/rg_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/cb1"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/cb1"
+            android:text="首页"
+            style="@style/RadioButtonMainBottom" />
+
+        <RadioButton
+            android:id="@+id/cb2"
+            android:text="发现"
+            style="@style/RadioButtonMainBottom" />
+
+        <RadioButton
+            android:id="@+id/cb3"
+            android:text="排行"
+            style="@style/RadioButtonMainBottom" />
+
+        <RadioButton
+            android:id="@+id/cb4"
+            android:text="我的"
+            style="@style/RadioButtonMainBottom" />
+
+    </RadioGroup>
+
+
+</RelativeLayout>
