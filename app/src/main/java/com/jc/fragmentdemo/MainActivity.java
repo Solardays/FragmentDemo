@@ -1,27 +1,24 @@
 package com.jc.fragmentdemo;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.jc.fragmentdemo.base.BaseActivity;
 import com.jc.fragmentdemo.dao.MainIView;
+import com.jc.fragmentdemo.util.ScreenUtils;
 import com.jc.fragmentdemo.view.fragment.FourFragment;
 import com.jc.fragmentdemo.view.fragment.OneFragment;
 import com.jc.fragmentdemo.view.fragment.ThreeFragment;
 import com.jc.fragmentdemo.view.fragment.TwoFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainIView {
     private DrawerLayout mDrawerLayout;
@@ -62,13 +59,30 @@ public class MainActivity extends BaseActivity implements MainIView {
             }
         });
         rgBottom = (RadioGroup) findViewById(R.id.rg_bottom);
+        setBottom();
         rgBottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                Log.e("MainActivity",checkedId+"");
+//                Log.e("MainActivity",checkedId+"");
                 switchFragment(checkedId);
             }
 
         });
+    }
+
+    private void setBottom() {
+        Drawable drawable0 = getResources().getDrawable(R.drawable.bottom_radiobtn0_color);
+        int pix = ScreenUtils.dip2px(this,25);
+        drawable0.setBounds(0,0,pix,pix);
+        ((RadioButton)rgBottom.getChildAt(0)).setCompoundDrawables(null,drawable0,null,null);
+        Drawable drawable1 = getResources().getDrawable(R.drawable.bottom_radiobtn1_color);
+        drawable1.setBounds(0,0,pix,pix);
+        ((RadioButton)rgBottom.getChildAt(1)).setCompoundDrawables(null,drawable1,null,null);
+        Drawable drawable2 = getResources().getDrawable(R.drawable.bottom_radiobtn2_color);
+        drawable2.setBounds(0,0,pix,pix);
+        ((RadioButton)rgBottom.getChildAt(2)).setCompoundDrawables(null,drawable2,null,null);
+        Drawable drawable3 = getResources().getDrawable(R.drawable.bottom_radiobtn3_color);
+        drawable3.setBounds(0,0,pix,pix);
+        ((RadioButton)rgBottom.getChildAt(3)).setCompoundDrawables(null,drawable3,null,null);
     }
 
     private void initFragment(Bundle savedInstanceState) {
@@ -108,7 +122,7 @@ public class MainActivity extends BaseActivity implements MainIView {
     }
 
     /**显示fragment*/
-    private void showFragment(FragmentTransaction ft,int index,Class<? extends Fragment> clazz) {
+    private void showFragment(FragmentTransaction ft, int index, Class<? extends Fragment> clazz) {
         Fragment fragment = fm.findFragmentByTag(fragmentTags[index]);
         if (fragment == null) {
             try {

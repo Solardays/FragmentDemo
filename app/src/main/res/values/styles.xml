@@ -20,6 +20,8 @@
         <item name="android:gravity">center</item>
         <item name="android:button">@null</item>
         <item name="android:textColor">@color/bottom_text_color</item>
+        <item name="android:drawablePadding">1dp</item>
+
     </style>
 
 </resources>
